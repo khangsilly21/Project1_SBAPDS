@@ -1,0 +1,367 @@
+\input{setup}
+
+\newcommand{\jg}[1]{\textcolor{Black}{\textbf{#1}}}
+\renewcommand{\tt}[1]{\texttt{#1}}
+
+\begin{document}
+
+\large
+.0
+3
+
+
+
+\begin{center}
+    \Huge
+    \text{ }\\
+    \jg{Hệ thống phân tích hành vi mua sắm và đề xuất sản phẩm}\\
+    
+\end{center}
+
+\vspace{30 pt}
+
+\begin{center}
+December 21, 2024
+\end{center}
+
+\vspace*{1cm}
+
+\begin{table}[h!]
+    \centering
+    \setlength{\tabcolsep}{15pt} % Khoảng cách giữa các cột (không cần thiết nếu chỉ 1 cột)
+    \renewcommand{\arraystretch}{1.0} % Điều chỉnh khoảng cách giữa các hàng
+    \begin{tabular}{c} % Chỉ một cột, căn giữa nội dung
+        \textbf{Lưu Thịnh Khang}  \\ % Dòng 1
+        Đại học Bách khoa Hà Nội \\ % Dòng 2
+        \texttt{khang.lt220031@sis.hust.edu.vn} % Dòng 3
+    \end{tabular}
+\end{table}
+
+\newpage
+
+
+\section{Giới thiệu}
+
+Trong thời đại công nghệ số và thương mại điện tử phát triển bùng nổ, các doanh nghiệp ngày càng có nhiều dữ liệu hơn về khách hàng của mình, từ lịch sử mua hàng, hành vi duyệt web, đến thông tin người dùng cá nhân. Tuy nhiên, làm thế nào để khai thác dữ liệu này một cách hiệu quả nhằm tối ưu hóa doanh thu và nâng cao trải nghiệm khách hàng vẫn là một thách thức lớn.
+Hành vi mua sắm của khách hàng không chỉ đơn thuần phản ánh nhu cầu hiện tại mà còn mang lại cơ hội để doanh nghiệp dự đoán xu hướng tiêu dùng trong tương lai. Thông qua việc phân tích dữ liệu, doanh nghiệp có thể:
+
+\begin{itemize}
+    \item Phân loại khách hàng theo mức độ trung thành và giá trị mang lại.
+    \item Đưa ra các đề xuất sản phẩm phù hợp dựa trên sở thích và hành vi tiêu dùng.
+    \item Cá nhân hóa trải nghiệm mua sắm, từ đó gia tăng conversion rate và tối ưu hóa doanh thu.
+\end{itemize}
+
+Hệ thống phân tích hành vi mua sắm và đề xuất sản phẩm không chỉ giúp doanh nghiệp hiểu rõ hơn về khách hàng mà còn tạo ra các chiến lược kinh doanh thông minh hơn. Các phương pháp như phân tích RFM, Market Basket Analysis, và các mô hình gợi ý (Content-based Filtering, Collaborative Filtering) đã được áp dụng thành công trong nhiều lĩnh vực như bán lẻ, thương mại điện tử và dịch vụ số.\linebreak
+
+Báo cáo \textit{Hệ thống phân tích hành vi mua sắm và đề xuất sản phẩm} sẽ phân tích các phương pháp, đánh giá hiệu quả, khả năng ứng dụng thực tiễn. Qua đó đóng góp cơ sở khoa học và thực tiễn, hỗ trợ xây dựng hệ thống phân tích hành vi người dùng, đáp ứng nhu cầu ngày càng phức tạp của thế giới thực.
+
+\section{Các phương pháp}
+
+Hệ thống phân tích hành vi mua sắm và đề xuất sản phẩm là một lĩnh vực quan trọng trong khoa học dữ liệu và thương mại điện tử, nhằm tối ưu hóa trải nghiệm người dùng và tăng hiệu quả kinh doanh. Dưới đây là một số khái niệm và phương pháp liên quan:
+
+\subsection{Phân tích RFM (Recency, Frequency, Monetary)}
+ Phân tích RFM là một loại phương pháp phân tích và phân loại khách hàng dựa trên hành vi mua sắm của họ. Đây là một phương pháp phân tích khách hàng dựa trên 3 yếu tố chính:
+\begin{itemize}
+    \item Recency(R): Số liệu này đánh giá thời gian trôi qua kể từ lần tương tác hoặc giao dịch cuối cùng của khách hàng với doanh nghiệp. Nó nhấn mạnh nguyên tắc rằng những tương tác gần đây hơn có thể cho thấy sự tham gia hoặc phản hồi cao hơn.
+    \item Frequency(F): Tần suất đánh giá số lượng tương tác hoặc giao dịch được khách hàng thực hiện trong một khoảng thời gian xác định. Nó làm sáng tỏ tần suất khách hàng tương tác với doanh nghiệp, cho thấy mức độ trung thành hoặc thói quen mua hàng.
+    \item Monetary(M): Giá trị tiền tệ thể hiện tổng chi tiêu hoặc đóng góp bằng tiền của khách hàng trong một khung thời gian cụ thể. Giá trị này biểu thị khả năng sinh lời của khách hàng hoặc doanh thu tiềm năng mà họ mang lại cho doanh nghiệp.
+\end{itemize}
+
+Mục tiêu chính của phân tích RFM là phân khúc khách hàng thành các nhóm riêng biệt dựa trên hành vi và lịch sử giao dịch của họ. Bằng cách phân loại khách hàng theo ba số liệu này, doanh nghiệp sẽ có được những hiểu biết có giá trị sâu săc về các phân khúc khách hàng khác nhau như nhận biết khách hàng giá trị cao, có chiến lược tiếp thị cá nhân hóa và chương trình giữ chân khách hàng.
+
+\subsection{Market Basket Analyze (Phân tích giỏi hàng)}
+Phân tích giỏ hàng thị trường là một kỹ thuật khai thác dữ liệu được các nhà bán lẻ sử dụng để tăng doanh số bán hàng bằng cách hiểu rõ hơn các mô hình mua hàng của khách hàng. Nó liên quan đến việc phân tích các tập dữ liệu lớn, chẳng hạn như lịch sử mua hàng, tiết lộ các nhóm sản phẩm và các sản phẩm có khả năng được mua cùng nhau.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/01.png}
+    \caption{Market Basket Analyze}
+    \label{fig:enter-label}
+\end{figure}
+
+Phân tích giỏ thị trường là một trong những kỹ thuật quan trọng được các nhà bán lẻ lớn sử dụng để khám phá mối liên hệ giữa các mặt hàng. Nó hoạt động bằng cách tìm kiếm sự kết hợp của các mục xuất hiện thường xuyên cùng nhau trong các giao dịch.\\
+
+\textbf{Association Rules} -  Phân tích luật kết hợp là một kỹ thuật quan trọng trong khai phá dữ liệu, được sử dụng để tìm ra các mối quan hệ tiềm ẩn giữa các sản phẩm hoặc mục trong tập dữ liệu lớn. Phương pháp này thường được áp dụng trong lĩnh vực bán lẻ, tiếp thị, y học và nhiều lĩnh vực khác để hiểu hành vi khách hàng và tối ưu hóa chiến lược kinh doanh. \\
+
+Các luật kết hợp thường được biểu diễn dưới dạng $A \rightarrow B$, với A là tập sản phẩm gốc (\textbf{Anticedent}), B là tập sản phẩm kéo theo (\textbf{Consequent}). Các chỉ số quan trọng:\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/mba01.png}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\begin{itemize}
+    \item \textbf{Support: }Xác định tần suất xuất hiện tập hợp mục trong toàn bộ tập dữ liệu hay mức độ phổ biến của 1 quy tắc.
+    $$Support = \frac{(A + B)}{Total}$$
+    \item  \textbf{Confidence: }Xác suất của 1 giao dịch chứa sản phẩm B khi nó đã chứa sản phẩm A hay mối liện hệ giữa 2 tập hợp mục.
+    $$Confidence = \frac{(A+B)}{A}$$
+    \item \textbf{Lift: }Cho biết ý nghĩa của một quy tắc, có ý nghĩa nếu Lift > 1 và ngược lại.
+    $$Lift = \frac{P(A+B)}{P(A)\times P(B)}$$
+\end{itemize}
+
+
+
+\subsection{Content-based and Collaborative Filtering}
+Hệ thống đề xuất là thuật toán trí tuệ nhân tạo sử dụng dữ liệu hiện có để đề xuất sản phẩm, dịch vụ hoặc thông tin cho người dùng. Hệ thống này sử dụng 3 phương pháp đề xuất chính: Content-based, Collaborative và Hybrid. Trong bài này chúng ta sẽ tìm hiểu về Content-based và Collaborative Filtering.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/rec01.png}
+    \caption{Content-based Filtering vs Collaborative Filtering}
+\end{figure}
+\subsubsection*{Content-based Filtering }
+
+Content-based Filtering tập trung vào đặc điểm của mặt hàng, dùng nó để đề xuất các mặt hàng tương tự cho người dùng. Đây là một phương pháp đơn giản và được phân chia thành nhiều phương pháp cụ thể, chẳng hạn như phương pháp dựa trên chủ đề, phương pháp bao trùm và phương pháp phụ trợ.\\
+
+Trong kỹ thuật này, các đề xuất thường được đưa ra cho từng hạng mục riêng lẻ. Ví dụ: khi xem một bộ phim trên nền tảng phát trực tuyến, bạn có thể thấy đề xuất về các phim tương tự ở cuối trang. Cách tiếp cận này lý tưởng để tạo đề xuất dựa trên thuộc tính của mặt hàng cụ thể mà bạn quan tâm.\\
+
+\textbf{Cosin Similarity: }Kỹ thuật này sử dụng cho Content-based Filtering, tính toàn điểm để định lượng mức độ giống nhau. Điểm càng cao thì càng giống nhau về nội dung.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/rec02.png}
+    \caption{Ví dụ về ứng dụng Cosin Similarity}
+\end{figure}
+
+Mặc dù hệ thống đề xuất dựa trên nội dung đề xuất hiệu quả các mặt hàng dựa trên sở thích cụ thể của người dùng nhưng nó vẫn có một số hạn chế. Thứ nhất, nó có thể trở nên quá tập trung vào chi tiết của các mục mà người dùng đã thích, dẫn tới hạn chế số lượng đề xuất. Nó cũng gặp khó khăn trong việc tìm ra đặc điểm nào thực sự quan trọng để đưa ra đề xuất, vì vậy đôi khi các đề xuất có thể không liên quan. Một vấn đề nữa là vấn đề "khởi đầu nguội"(\textbf{cold start}), trong đó người dùng mới không có các dữ liệu để xử lý nên không nhận được đề xuất tốt.
+
+\subsubsection*{Collaborative Filtering }
+
+Phương pháp Collaborative Filtering đề xuất dựa trên sự cộng tác (collaborative) của người dùng. Thay vì tập trung vào các tính năng cụ thể của mặt hàng, nó đánh giá hành vi và sở thích của người dùng. Sau đó xem xét thông tin của những người dùng khác có cùng sở thích rồi dựa vào đó để đề xuất các mặt hàng bạn có thể thích.\\
+
+Phương pháp này có thể đưa ra những đề xuất đa dạng và thú vị, thường giới thiệu cho người dùng những mặt hàng mới hoặc phổ biến mà họ có thể chưa khám phá ra bằng cách khác. Nó giống như nhận được gợi ý từ những người bạn có cùng sở thích.\\
+
+Có nhiều cách tiếp cận hiện tại cho Collaborative Filtering như \textbf{Matrix Factorization}, \textbf{Neural Collaborative Filtering}, \textbf{Vatiational Autoencoder},...
+
+\subsection{A/B Testing}
+
+\section{Triển khai}
+
+\subsection{Mô tả bài toán}
+
+Hệ thống phân tích hành vi mua sắm và đề xuất sản phẩm là một bài toán quan trọng trong lĩnh vực thương mại điện tử và phân tích dữ liệu. Với sự phát triển nhanh chóng của các nền tảng trực tuyến, việc hiểu rõ hành vi mua sắm của khách hàng không chỉ giúp các doanh nghiệp cải thiện trải nghiệm người dùng mà còn tối ưu hóa chiến lược kinh doanh, từ đó tăng doanh thu và hiệu quả kinh doanh.\\
+
+Mục tiêu của bài toán là xác định và phân tích các đặc điểm quan trọng như tần suất mua sắm, giá trị đơn hàng, và khoảng thời gian giữa các giao dịch để phân loại khách hàng theo mức độ tiềm năng, đề xuất sản phẩm phù hợp và Thúc đẩy hành động mua hàng bằng cách đưa ra các đề xuất sản phẩm cá nhân hóa và chính xác, phù hợp với sở thích và lịch sử mua sắm. 
+
+\subsection{Triển khai các thuật toán}
+
+Việc phân tích hành vi mua sắm và đề xuất sản phẩm không chỉ đơn thuần là một nhiệm vụ kỹ thuật mà còn là một chiến lược kinh doanh quan trọng giúp nâng cao trải nghiệm khách hàng và tối ưu hóa doanh thu. Để đạt được điều này, nhiều thuật toán và phương pháp phân tích đã được áp dụng nhằm khai thác dữ liệu từ hành vi của khách hàng và đưa ra các gợi ý chính xác. Dưới đây là một số phương pháp được sử dụng.
+
+\subsubsection*{Phương pháp Phân tích RFM (Recency, Frequency, Monetary)}
+
+Bản báo cáo này dùng ngôn ngữ lập trình Python 3, Visual Studio Code làm IDE, và tập dữ liệu từ \href{https://archive.ics.uci.edu/dataset/352/online+retail}{\textbf{đây}} và mã nguồn đầy đủ xem tại \href{https://github.com/khangsilly21/Project1_SBAPDS}{github của tôi}.
+
+\begin{enumerate}
+    \item Chuẩn bị bảng RFM
+    
+    Trong tập dữ liệu ban đầu gồm 8 thuộc tính: InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, and Country. Để thuận tiện tính toán, ta thêm 1 cột $``Revenue"$ với công thức $df``Revenue"] = df [``UnitPrice"] \times df[``Quantity"]$ . \\
+
+    Các chi tiết liên quan tới dữ liệu đượcc trình bày như hình bên dưới
+    
+    \begin{minipage}[c]{1\linewidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{images/rfm06.png}
+            
+            \label{fig:enter-label}
+        \end{figure}
+        \begin{figure}[H]
+       \centering
+       \includegraphics[width=0.7\linewidth]{images/rfm01.png}
+       
+       \label{fig:enter-label}
+   \end{figure}
+    \end{minipage}
+   
+   \item Khởi tạo bảng RFM
+
+   Từ tập dữ liệu đã cho, ta tính toán các chỉ số \textbf{Recency}, \textbf{Frequency}, \textbf{Monetary} của từng khách hàng. 
+   
+   \begin{figure}[H]
+       \centering
+       \includegraphics[width=0.7\linewidth]{images/rfm07.png}
+       \label{fig:enter-label}
+   \end{figure}
+   
+   
+   Giai đoạn cơ sở và quan trọng nhất của phương pháp phân tích RFM là tạo bảng RFM.
+   
+   \begin{minipage}[c]{1\linewidth}
+       \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.7\linewidth]{images/rfm05.png}    
+           \label{fig:enter-label}
+       \end{figure}
+       \begin{figure}[H]
+       \centering
+       \includegraphics[width=0.7\linewidth]{images/rfm02.png}
+       \caption{Bảng RFM}
+       \label{fig:enter-label}
+   \end{figure}
+   \end{minipage}
+
+    Đây là bước cơ bản nhưng mang nhiều ý nghĩa trong việc phân tích dữ liệu, phân hoạch khách hàng thành các nhóm.
+   
+    \begin{minipage}[c]{1\linewidth}
+        \begin{figure}[H]
+       \centering
+       \includegraphics[width=0.7\linewidth]{images/rfm04.png}
+       
+       \label{fig:enter-label}
+   \end{figure}
+   
+   \begin{figure}[H]
+       \centering
+       \includegraphics[width=0.7\linewidth]{images/rfm03.png}
+       \caption{5 khách hàng chi tiêu nhiều nhất}
+       \label{fig:enter-label}
+   \end{figure}
+    \end{minipage}
+
+    Như ở trên hình, khách hàng đầu tiên (CustomerID = 14646.0) có lần mua hàng gần nhất là cách đây 1 ngày, đã mua 2085 lần và thanh toán số tiền là 279489.02. Ta cũng dự đoán được rằng khách hàng có lần mua hàng càng gần đây, số lượng mua hàng càng lớn thì số tiền họ dành để mua hàng càng lớn.
+
+    \item Chia khách hàng thành các phân khúc
+
+    Giả sử rằng chúng ta đã sắp xếp từng khách hàng theo thứ tự dựa trên giá trị gần đây, tần suất hoặc tiền tệ. Chúng tôi sẽ chia danh sách đã sắp xếp của mình thành bốn phân khúc và xác định mỗi khách hàng sẽ thuộc phân khúc nào.\\
+
+    Chúng ta sẽ thêm các cột "r\_quartile", "f\_quartiel", "m\_quartile" vào bảng RFM, kết quả sẽ thu được bảng như sau: 
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{images/rfm08.png}
+        \caption{Bảng RFM thêm các cột phân loại}
+        \label{fig:enter-label}
+    \end{figure}
+
+    Chúng ta chia các cột "recency", "frequency", "monetary" thành 4 phần và gán các nhãn 1, 2, 3 ,4 với ý nghĩa 4 là tốt nhất với doanh nghiệp, 1 là khách hàng đang biến mất.
+
+    Để dễ dàng phân loại khách hàng, chúng ta gộp 3 chỉ số R, F, M lại thành RFM\_quartiles.
+    
+    \begin{minipage}[c]{1\linewidth}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/rfm09.png}
+        \label{fig:enter-label}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/rfm10.png}
+        \caption{Bảng RFM với chỉ số RFM\_}
+        \label{fig:enter-label}
+    \end{figure}
+    \end{minipage}
+    
+    Như vậy có $4\times 4\times 4 = 64$ giá trị của RFM\_quartiles, từ "111" tới "444", vẫn rất thách thức trong việc phân loại và hỗ trợ khách hàng. Chúng ta sẽ nhóm các chỉ số này thành các nhóm nhỏ hơn, mang nhiều ý nghĩa hơn. Phương pháp RFM khi hoàn thiện sẽ phân loại những khách hàng giống như dưới đây:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/rfm11.png}
+        \caption{Phương pháp RFM phân loại khách hàng}
+        \label{fig:enter-label}
+    \end{figure}
+
+    Chúng ta có thể hiểu rõ hơn về khách hàng của mình qua biểu đồ: 
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/rfm12.png}
+    \end{figure}
+
+    Vì vậy, bằng cách phân khúc khách hàng, chúng ta đã hoàn thiện Bảng RFM. Với bảng này, chúng ta có thể tiến hành phân tích chi tiết và thu được những hiểu biết sâu sắc khác nhau.
+   
+\end{enumerate}
+
+\subsubsection*{Phương pháp Market Basket Analysis}
+
+Việc triển khai này tôi vẫn sẽ dùng tập dữ liệu như ở \href{https://archive.ics.uci.edu/dataset/352/online+retail}{trên} và mã nguồn đầy đủ xem tại \href{https://github.com/khangsilly21/Project1_SBAPDS}{github của tôi}.
+
+\begin{enumerate}
+    \item Chuẩn bị dữ liệu \\
+    Chuyển tập dữ liệu ban đầu thành các sản phẩm trong một lần mua.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{images/mba03.png}
+        \label{fig:enter-label}
+    \end{figure}
+
+
+    Ta xem các thông tin chung về mỗi sản phẩm :
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{images/mba06.png}
+        \label{fig:enter-label}
+    \end{figure}
+
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{images/mba04.png}
+       \caption{Biểu đồ số lượng sản phẩm}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{images/mba05.png}
+        \caption{Biểu đồ tỷ lệ sản phẩm}
+        \label{fig:enter-label}
+    \end{figure}
+    \item Tạo Association Rules
+    Bằng cách sử dụng thư viện Apriori, ta tạo được các luật kết hợp từ tập dữ liệu bên trên:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{images/mba07.png}
+        \caption{Các luật kết hợp phổ biến}
+    \end{figure}
+
+    Hình trên là các luật kết hợp "Support", "Confidence", "Lift", từ mối quan hệ $A\rightarrow B$ , với A ứng với Anticedent và B ứng với Consequent được sắp xếp theo thứ tự giảm dần của chỉ số "Support".
+
+    Market Basket Analysis mang lại ý nghĩa to lớn trong nhiều lĩnh vực như kinh tế, y học, bảo hiểm, bất động sản,... Đặc biệt ở trong kinh tế, MBA giúp hiểu hơn về thói quen mua sắm của khách hàng, giúp tìm được các quy luật mua sắm "ẩn", giúp người bán hàng quản lý kho hàng tốt hơn và có chiến lược kinh doanh hiệu quả.
+    \end{enumerate}
+\subsubsection*{Phương pháp Content-based và Collaborative Filtering}
+
+    Chúng ta sẽ khám phá các kỹ thuật cụ thể được sử dụng để tạo ra các hệ thống đề xuất hiệu quả, hiểu cách chúng tạo ra các kết quả khác nhau dựa trên mỗi ứng dụng. Chúng tôi cũng sẽ xem xét một nghiên cứu điển hình, gợi ý phim, để cung cấp những hiểu biết thực tế cùng với những lời giải thích. Phần này để giới thiệu các hệ thống đề xuất và hướng dẫn các cách triển khai khác nhau.
+    \begin{itemize}
+        \item \textbf{Content-based Filtering} 
+            \begin{enumerate}
+                \item Chuẩn bị dữ liệu
+                
+                Tập dữ liệu bài này có thể lấy ở github của tôi. Với các hàng là thông tin của 1 phim và các cột là đặc điểm của phim: Tên phim, thể loại, hãng sản xuất ...
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.7\linewidth]{images/rec05.png}
+                \end{figure}
+
+                Tiếp đến bỏ các cột có tác động không lớn tới việc đề xuất:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.7\linewidth]{images/rec07.png}
+                \end{figure}
+
+                                
+                \item Kết hợp các cột trên thành một cột duy nhất
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.7\linewidth]{images/rec06.png}
+                \end{figure}
+            \end{enumerate}
+        \item \textbf{Collaborative Filtering} \\
+        
+        Ý tưởng cơ bản của thuật toán này là dự đoán mức độ yêu thích của một user đối với một item dựa trên các users khác “gần giống” với user đang xét. Việc xác định độ “giống nhau” giữa các users có thể dựa vào mức độ quan tâm (rating) của các users này với các items khác mà hệ thống đã biết trong quá khứ.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{images/rec03.png}
+        \end{figure}
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
+
+
+        
+    \end{itemize}
+        
+
+
+\end{document}
